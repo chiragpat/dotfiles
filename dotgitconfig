@@ -1,0 +1,9 @@
+[user]
+	name = Chirag Patel
+	email = chiragpat@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+[color]
+	ui = true
+[push]
+	default = simple

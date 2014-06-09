@@ -1,0 +1,72 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="wedisagreecustom"
+
+# Interactive/Safe Shell
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+alias mkdir='mkdir -p'
+alias grep='grep -rn --color=auto --exclude-dir=".svn"'
+
+# Shortcuts
+alias h="history"
+alias edit="subl"
+alias e="subl"
+alias svndiff="svn diff --diff-cmd colordiff"
+alias edit='subl'
+alias ews='ssh -t patel178@remlnx.ews.illinois.edu "/bin/zsh"'
+alias orpheum='ssh -Y u39405173@s147667305.onlinehome.us'
+alias weather='ansiweather'
+alias n='sudo n'
+
+# System Stats
+alias up="uptime"
+alias sup="ps auxwww"
+alias df="df -h"
+
+
+#Plugins
+plugins=(git brew colored-man extract python git-extras node npm svn ansiweather)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:$PATH
+
+export SCALA_HOME="/usr/local/opt/scala/idea"
+export CLICOLOR="true"
+export LSCOLORS="exfxcxdxbxegedabagacad" #I like these LS colors better
+export SVN_EDITOR="subl"
+PROMPT='%{$reset_color%}[ %{$fg_bold[blue]%}%3c%{$reset_color%} ] %{$fg[magenta]%}> %{$reset_color%}'
+
+##Toggle Hidden Files/Folder
+function toggleHidden() {
+  STATUS=`defaults read com.apple.finder AppleShowAllFiles`
+  if [ $STATUS == TRUE ]; then
+    defaults write com.apple.finder AppleShowAllFiles FALSE
+  else
+    defaults write com.apple.finder AppleShowAllFiles TRUE
+  fi
+  killall Finder
+}
+
+HISTFILE=~/.history
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+if [[ -f ~/.zshlocal ]]; then
+  source ~/.zshlocal
+fi
