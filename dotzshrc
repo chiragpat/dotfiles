@@ -16,10 +16,9 @@ alias grep='grep -rn --color=auto --exclude-dir=".svn"'
 
 # Shortcuts
 alias h="history"
-alias edit="subl"
-alias e="subl"
+alias edit="code"
+alias e="code"
 alias svndiff="svn diff --diff-cmd colordiff"
-alias edit='subl'
 alias ews='ssh -t patel178@remlnx.ews.illinois.edu "/bin/zsh"'
 alias orpheum='ssh -Y u39405173@s147667305.onlinehome.us'
 alias weather='ansiweather'
@@ -32,17 +31,16 @@ alias df="df -h"
 
 
 #Plugins
-plugins=(git brew colored-man extract python git-extras node npm svn ansiweather)
+plugins=(git colored-man extract python git-extras node npm svn ansiweather)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:$PATH
 
-export SCALA_HOME="/usr/local/opt/scala/idea"
 export CLICOLOR="true"
 export LSCOLORS="exfxcxdxbxegedabagacad" #I like these LS colors better
-export SVN_EDITOR="subl"
+export SVN_EDITOR="code"
 PROMPT='%{$reset_color%}[ %{$fg_bold[blue]%}%3c%{$reset_color%} ] %{$fg[magenta]%}> %{$reset_color%}'
 
 ##Toggle Hidden Files/Folder
